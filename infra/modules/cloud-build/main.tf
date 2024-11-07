@@ -26,7 +26,8 @@ resource "google_cloudbuild_trigger" "processor_trigger" {
   build {
     step {
       name = "ubuntu"
-      args = ["echo", "hello world"]
+      entrypoint = "bash"
+      args = ["-c", "apt-get update && apt-get install -y zip && zip -r function.zip /workspace/src/* && gsutil cp function.zip gs://processor-function/InstMarketingProcessor.Analyzer.zip"]
       id = "Build"
     }
     
