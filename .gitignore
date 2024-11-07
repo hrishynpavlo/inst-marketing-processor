@@ -141,3 +141,4 @@ _NCrunch*
 *.tfvars
 terraform.tfstate
 terraform.tfstate.*
+sa.*.json
