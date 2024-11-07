@@ -137,3 +137,7 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+
+.tfvars
+terraform.tfstate
+terraform.tfstate.*

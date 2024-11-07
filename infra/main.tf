@@ -1,18 +1,8 @@
 ﻿##https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudbuildv2_connection_iam
 
-terraform {
-  required_providers {
-    google = {
-      source = "hashicorp/google"
-      version = "6.8.0"
-    }
-  }
-}
 
-provider "google" {
-  project = "inst-marketing-processor-proj"
-  region = "europe-west1"
-}
+
+
 resource "google_cloudbuild_trigger" "github_analyzer_trigger" {
   name = "cloud-build-trigger-for-analyzer"
   
