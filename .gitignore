@@ -138,6 +138,6 @@ $RECYCLE.BIN/
 
 _NCrunch*
 
-.tfvars
+*.tfvars
 terraform.tfstate
 terraform.tfstate.*
