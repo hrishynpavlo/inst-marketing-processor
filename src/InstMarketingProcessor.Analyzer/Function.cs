@@ -19,6 +19,6 @@ public class Function : IHttpFunction
         context.Response.StatusCode = StatusCodes.Status200OK;
         await context.Response.WriteAsync(jsonResponse, context.RequestAborted);
     }
-    
-    public record Response(string Name, DateTime Time, int RandomNumber);
+
+    private record Response(string Name, DateTime Time, int RandomNumber);
 }
