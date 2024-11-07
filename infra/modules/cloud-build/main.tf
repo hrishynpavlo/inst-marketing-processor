@@ -25,10 +25,10 @@ resource "google_cloudbuild_trigger" "processor_trigger" {
   
   build {
     step {
-      name = "ubuntu"
+      name = "google/cloud-sdk"
       entrypoint = "bash"
-      args = ["-c", "apt-get update && apt-get install -y zip && zip -r function.zip /workspace/src/* && gsutil cp function.zip gs://processor-function/InstMarketingProcessor.Analyzer.zip"]
-      id = "Build"
+      args = ["-c", "zip -r function.zip /workspace/src/* && gsutil cp function.zip gs://processor-function/InstMarketingProcessor.Analyzer.zip"]
+      id = "Archive function AND Save in bucket"
     }
     
     options {
