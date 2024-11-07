@@ -39,7 +39,7 @@ resource "google_cloudbuild_trigger" "processor_trigger" {
     
     step {
       name = "gcr.io/cloud-builders/gcloud"
-      args = ["run", "deploy", "processor-function", "--image=gcr.io/$PROJECT_ID/processor-function:latest", "--source=gs://processor-function/InstMarketingProcessor.Analyzer.zip"]
+      args = ["run", "deploy", "processor-function", "--source=gs://processor-function/InstMarketingProcessor.Analyzer.zip", " --allow-unauthenticated"]
       id = "Redeploy function"
     }
     
