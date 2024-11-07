@@ -27,6 +27,11 @@ resource "google_cloudbuild_trigger" "processor_trigger" {
     step {
       name = "ubuntu"
       args = ["echo", "hello world"]
+      id = "Build"
+    }
+    
+    options {
+      logging = "CLOUD_LOGGING_ONLY"
     }
   }
 }
