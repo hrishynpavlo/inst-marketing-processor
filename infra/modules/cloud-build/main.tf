@@ -33,7 +33,7 @@ resource "google_cloudbuild_trigger" "processor_trigger" {
     
     step {
       name = "gcr.io/cloud-builders/gsutil"
-      args = ["cp", "gs://processor-function/InstMarketingProcessor.Analyzer.zip", "/workspace/function.zip"]
+      args = ["cp", "/workspace/function.zip", "gs://processor-function/InstMarketingProcessor.Analyzer.zip"]
       id = "Put archive to bucket"
     }
     
