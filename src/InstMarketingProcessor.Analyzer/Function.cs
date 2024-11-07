@@ -8,7 +8,7 @@ public class Function : IHttpFunction
 {
     public async Task HandleAsync(HttpContext context)
     {
-        var result = new Response("John Doe", DateTime.UtcNow);
+        var result = new Response("John Doe", DateTime.UtcNow, Random.Shared.Next());
         var response = JsonConvert.SerializeObject(result);
         await Ok(context, response);
     }
@@ -20,5 +20,5 @@ public class Function : IHttpFunction
         await context.Response.WriteAsync(jsonResponse, context.RequestAborted);
     }
     
-    public record Response(string Name, DateTime Time);
+    public record Response(string Name, DateTime Time, int RandomNumber);
 }
