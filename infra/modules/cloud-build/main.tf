@@ -27,7 +27,7 @@ resource "google_cloudbuild_trigger" "processor_trigger" {
     step {
       name = "google/cloud-sdk"
       entrypoint = "bash"
-      args = ["-c", "zip -r function.zip /workspace/src/* && gsutil cp function.zip gs://processor-function/InstMarketingProcessor.Analyzer.zip"]
+      args = ["-c", "zip -r function.zip /workspace/src/InstMarketingProcessor.Analyzer/* && gsutil cp function.zip gs://processor-function/InstMarketingProcessor.Analyzer.zip"]
       id = "Archive function AND Save in bucket"
     }
     
