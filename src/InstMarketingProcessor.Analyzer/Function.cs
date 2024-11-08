@@ -8,7 +8,7 @@ public class Function : IHttpFunction
 {
     public async Task HandleAsync(HttpContext context)
     {
-        var result = new Response("John Doe", DateTime.UtcNow, Random.Shared.Next(1, 3002));
+        var result = new Response("John Doe", DateTime.UtcNow, Random.Shared.Next(3033, 3999));
         var response = JsonConvert.SerializeObject(result);
         await Ok(context, response);
     }
