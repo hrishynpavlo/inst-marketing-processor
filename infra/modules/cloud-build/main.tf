@@ -33,8 +33,14 @@ resource "google_cloudbuild_trigger" "processor_trigger" {
     
     step {
       name = "gcr.io/cloud-builders/gsutil"
-      args = ["cp", "/workspace/function.zip", "gs://gcf-v2-sources-390569356374-europe-west1/processor-function/function-source.zip"]
+      args = ["cp", "/workspace/function.zip", "gs://processor-function/InstMarketingProcessor.Analyzer.zip"]
       id = "Put archive to bucket"
+    }
+    
+    step {
+      name = "gcr.io/cloud-builders/gcloud"
+      args = ["functions", "deploy", "processor-function", "--region=europe-west1", "--runtime=dotnet8", "--source=gs://processor-function/InstMarketingProcessor.Analyzer.zip", "--entry-point=InstMarketingProcessor.Analyzer.Function", "--trigger-http"]
+      id = "Redeploy function"
     }
     
     options {
